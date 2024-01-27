@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <!-- The <link> element with the rel="stylesheet" attribute is used in HTML to link an external CSS (Cascading Style Sheets) file to an HTML document. The href attribute specifies the path or URL to the external CSS file. -->
+    <!-- rel="stylesheet": This attribute specifies the relationship between the linked resource and the current document. In this case, it indicates that the linked resource is a stylesheet. -->
+</head>
+<body>
+    <!-- printing hello people through html -->
+    
+     <div id ="root">
+        <!-- <h1>Hello People ! </h1> -->
+    </div> 
+    
+    
+    <!-- printing hello people through javascript -->
+    
+    <!-- <script>
+        const heading = document.createElement("h1")
+        heading.innerHTML = "Hello peops javascript"
+        document.getElementById("root").appendChild(heading);
+        
+    </script> -->
+    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+     
+     
+    <!-- above is cdn links to react and react dom .CDN stands for Content Delivery Network .A CDN is a network of servers strategically located around the world to provide efficient and fast delivery of web content to users.When a website uses a CDN, instead of loading all its resources from a single server, these resources are distributed across multiple servers in different geographic locations. When a user requests a webpage, the CDN automatically delivers the requested content from the server that is closest to the user, reducing latency and improving page load times. -->
+    <!-- The <script> tag in HTML is used to embed or reference JavaScript code within an HTML document
+     -->
+    <!-- now we will see how to print the same content through react. -->
+    
+    
+    <script   src ="./App.js">
+        //const heading = React.createElement("hi",{},"Hello People ! Its my first react progran :)")
+        //const root = ReactDOM.createRoot(document.getElementById("root")); // here ReactDOM is being used to actually create a root inside which react can render whatever we want it to .
+        //root.render(heading);
+        
+        
+        // Have moved the entire code in App.js as you will not be writing your entire code in this HTML file ofcourse.
+        
+    </script>
+</body>
+</html>
+
+
+<!-- Let us understand about that crossorigin attribute we were using earlier -->
+
+<!-- This attribute is used for security reasons when loading scripts from a different domain. The crossorigin attribute, when set, indicates that the browser should perform a CORS (Cross-Origin Resource Sharing) request when fetching the script. This is necessary if the script is hosted on a different domain than the one serving the HTML document.
+
+
+CORS, which stands for Cross-Origin Resource Sharing, is a security feature implemented by web browsers to control how web pages in one domain can request and interact with resources from another domain. This security measure helps prevent malicious websites from making unauthorized requests to a different domain on behalf of a user.
+
+
+By default, web browsers enforce the Same-Origin Policy, which restricts web pages from making requests to a different domain than the one that served the original web page.
+
+When a web page hosted on one domain attempts to make a request (e.g., via AJAX, Fetch API, or XMLHttpRequest) to a resource on a different domain, the browser enforces CORS.
+
+CORS Headers: The server hosting the resource can include special HTTP headers in its response to inform the browser whether the request is allowed. These headers include:
+
+Access-Control-Allow-Origi Specifies which origins are permitted to access the resource. For example, if a server includes Access-Control-Allow-Origin: https://example.com, only requests from "https://example.com" will be allowed.
+Access-Control-Allow-Methods: Specifies the HTTP methods (e.g., GET, POST) that are allowed when accessing the resource.
+Access-Control-Allow-Headers: Specifies which HTTP headers can be used during the actual request.
+
+Preflight Requests: For certain types of requests (e.g., those with custom headers or using methods other than GET or POST), the browser may send a preflight request (an HTTP OPTIONS request) to check if the server allows the actual request. The server responds with the appropriate CORS headers. -->
