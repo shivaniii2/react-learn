@@ -1,6 +1,9 @@
+import React from "react";
+import ReactDOM from "react-dom/client"
+
 const heading = React.createElement("h1",{id:"heading",xyz:"abc"},"Hello People ! Its my first react program :)")
 console.log(heading,"hi"); // here we see that heading created through React.createElement is actually an object which has props (children and attributes)field which has everything we passed to React.createElement as arguments as values like 
-const root = ReactDOM.createRoot(document.getElementById("root")); // here ReactDOM is being used to actually create a root inside which react can render whatever we want it to .
+const root = ReactDOM.createRoot(document.getElementById("root")); // here ReactDOM is being used to make the div with root id as a root for rendering elements  inside this root div react can render whatever we want it to . so whatever happens in react app will happen in this root .
 root.render(heading); // render is actually responsible for taking this object we just created and rendering it as h1 in DOM.
 
 
@@ -12,7 +15,7 @@ root.render(heading); // render is actually responsible for taking this object w
 
 
 // As we know that the third argument to this createElement method is the children (as learnt while logging this object to console) so we will pass  another element as third arg.
-const parent = React.createElement("div",{id:"parent"},React.createElement("div",{id:"child"},[React.createElement("h1",{},"I am shivani"),React.createElement("h2",{},"I am cool")]))
+const parent = React.createElement("div",{id:"parent"},React.createElement("div",{id:"child"},[React.createElement("h1",{},"I am shivani 🤓"),React.createElement("h2",{},"I am cool and you know that  😎 ")]))
 root.render(parent)
 
 // for sibling elements , use an array.

@@ -1,0 +1,19 @@
+#heading{
+    color: rebeccapurple;
+}
+.img-tag{width: 100px;
+    border-radius: 50%;}
+    
+.flex-class{display: flex;}
+.justify-content-space-between{justify-content: space-between;}
+.nav-logos > ul{display: flex; list-style-type: none;} /*This CSS selector .nav-item > ul targets a <ul> element that is a direct child of an element with the class "nav-item"
+also this list-style-type : none is removing that dots con=me after list items :)
+*/
+.nav-logos > ul >li{padding: 10px; margin:10px}
+.header{border: 2px solid brown;}
+.logo{padding: 10px;}
+.res-cont{ display: flex; flex-wrap: wrap;}
+.res-card:hover{cursor: pointer;border: 1px solid brown; }
+.res-card{padding: 25px; margin: 15px; background: gray;}
+.res-card-img{width: 200px;}
+.search{margin: 15px;}

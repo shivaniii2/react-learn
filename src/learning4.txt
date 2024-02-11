@@ -1,0 +1,4 @@
+You can write your own scripts in package.json to avoid running that big commands (npx parcel index.html) again and again . 
+let us write scripts in package.json file.
+now npm run start is new command to make a development build and set up a local development server for hosting our app .
+and now npm run  build is for making production build of our app.

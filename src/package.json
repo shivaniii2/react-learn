@@ -1,0 +1,39 @@
+{
+  "name": "yes",
+  "version": "1.0.0",
+  "description": "this is a react learning project",
+  "scripts": {
+    "test": "zest",
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivaniii2/react-learn.git"
+  },
+  "keywords": [
+    "react",
+    "learn"
+  ],
+  "author": "shivani sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shivaniii2/react-learn/issues"
+  },
+  "homepage": "https://github.com/shivaniii2/react-learn#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "browserlist" :[
+    "last 2 versions"
+  ],
+  
+  "dependencies": {
+    "lmdb": "^2.9.2",
+    "loader": "^2.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

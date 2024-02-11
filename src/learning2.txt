@@ -1,0 +1,73 @@
+You saw that when you run command : npx parcel index.html      , I encountered an issue with some compatibility of a node module with the npm version i had in this project so, I just installed latest version of npm and node which are compatible with each other and both of which are compatible with the version of package (which is parcel) my project has dependecy on.
+
+so we just saw that these versions of npm node and dependencies or package we install or the dependencies on which our project relies on play a crucial role in whole development process or in hosting our app to local development server which is http://localhost:1234 in our case.
+
+
+so now let us understand about what are these local development servers , node , npm   and all that we have been missing from a while.
+
+
+Node.js is a JavaScript runtime environment. It allows you to run JavaScript code on the server-side, outside of a web browser. Traditionally, JavaScript was primarily used for client-side scripting within web browsers to enhance the interactivity of web pages. However, Node.js extends the use of JavaScript beyond the browser, enabling developers to use it for server-side programming.
+
+When your app is hosted on http://localhost:1234, it means that your app is running on a local server, and it is accessible through a web browser using the specified address and port number.
+
+
+so a React project is essentially a Node.js project. While React itself is a JavaScript library for building user interfaces, the development environment and tooling around a React project often involve Node.js.
+
+Here's how the relationship typically works:
+
+Node.js as the Runtime:
+
+When you create a React project using tools like Create React App or Next.js, Node.js is used as the runtime environment to execute JavaScript code on the server side during the development process.
+Node.js is also commonly used to serve the built React application in a production environment.
+npm for Dependency Management:
+
+Node Package Manager (npm) is the default package manager for Node.js, and it is used to manage dependencies for your React project.
+When you initialize a React project using Create React App or similar tools, a package.json file is created. This file includes metadata about your project and lists the dependencies it needs, such as React itself and other libraries.
+npm Scripts:
+
+The package.json file in your React project often includes scripts for various development tasks. These scripts can be run using npm commands and are typically used for tasks like starting a development server, running tests, or building the project for production.
+For example, you might have scripts like "start", "test", and "build" in your package.json.
+Development Server:
+
+During development, a Node.js-based development server is commonly used to serve your React application locally.
+Build Process:
+
+When you build your React project for production using a command like npm run build, Node.js is involved in the build process. It may be used to execute scripts that bundle and optimize your application for deployment.
+
+In summary, while React itself is a JavaScript library for building user interfaces, the tooling and development environment around a React project often leverage Node.js for tasks like dependency management, running scripts, serving the application during development, and handling the build process for production. As a result, a React project can be considered a Node.js project.
+
+
+
+
+
+
+let us try to understand the command we just run in detail :
+The command npx parcel index.html is using Parcel, a web application bundler, to build and serve your React project. Let's break down what each part of the command does:
+
+npx:
+
+npx is a package runner tool that comes with npm. It is used to execute packages that are not globally installed.
+parcel:
+
+Parcel is a web application bundler. It is used to bundle and optimize your project's source code, including JavaScript, CSS, and other assets, for production.
+
+
+index.html:
+
+index.html is the entry point of your application. Parcel uses this file as the starting point for bundling your entire project. In a React application.
+
+
+So, when you run npx parcel index.html, here's what happens:
+
+Parcel reads index.html and follows the dependencies in your project (JavaScript, CSS, images, etc.).
+It bundles these dependencies into optimized files, typically outputting a dist or build directory.
+It may also start a development server to serve your application locally.
+If the development server is started, you can view your React application by navigating to the provided local URL (e.g., http://localhost:1234) in your web browser.
+
+
+
+
+
+
+
+
