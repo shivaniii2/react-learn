@@ -1,0 +1,14 @@
+As of now the menu item is responsible for handling its state showBody . If it is true then the entire description , name and price of the menu item will be displayed otherwise only header with title will display.
+
+
+Now in this project we want to implement a feature where if one accordian is open/expanded, the other should automatically close.
+
+For this feature to be implemented , it is important for us to understand the concept of state uplifting and so we are also removing the control of showing or hiding body of the menu item from the component itself and instead we are moving this control to the parent component so that when one menu item banner is clicked the other  menu item banners know and hence they close  . 
+
+State lifting, also known as state elevation or state hoisting, is a concept in React where the state of a component is moved up to a common ancestor component. 
+
+This is typically done to share state between multiple components or to allow sibling components to communicate with each other via a common state.
+
+
+ResMenuCategory has become a controlled component now as it is being controlled by the parent component.
+

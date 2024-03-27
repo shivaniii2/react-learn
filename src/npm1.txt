@@ -1,4 +1,4 @@
-NPM (Node Package Manager) is a package manager for JavaScript programming language.
+NPM (Node Package Manager) is a package manager for JavaScript programming language.  (git username : shivaniii2)
 npm (Node Package Manager) and Node.js versions are tightly coupled, and it's generally recommended to use compatible versions. When you install Node.js, npm is included with it, and the version of npm bundled with a specific version of Node.js may have optimizations or features that work best with that Node.js version.
 
 You need to install Node.js separately on your machine before using npm or running JavaScript code on the server side.

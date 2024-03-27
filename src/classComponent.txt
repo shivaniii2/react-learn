@@ -1,0 +1,132 @@
+ class UserClass extends react.Component
+ 
+ The above line says that there is this our own class named UserClass .  extends : This specifies that UserClass inherits from Component, which is a base class provided by React for creating UI components.By extending React.Component, UserClass gains access to various features and methods provided by React for managing component state, handling lifecycle events, and rendering UI elements.
+ 
+ 
+ 
+ render method is another important thing to know about these class components in react.
+ 
+ In React, the render() method is a required method for class components. It is responsible for describing what the component should render to the UI based on its current state and props.
+
+The render() method must return a single JSX element.
+It should only depend on the component's state and props to determine what to render.
+
+
+
+
+The super() method is used to call the constructor of the parent class (React.Component in this case).
+In React, when you create a class-based component that extends React.Component, you need to call super(props) in the constructor of the subclass. This ensures that the parent class (React.Component) is properly initialized before initializing the subclass.
+
+
+Ensuring that the parent class is initialized properly is crucial for several reasons:
+
+Inheritance: In object-oriented programming, such as in JavaScript with classes, subclassing allows you to create new classes that inherit properties and methods from existing classes. In the context of React, when you create a component that extends React.Component, you're essentially creating a subclass of React.Component. Initializing the parent class properly ensures that your subclass inherits the necessary functionality from the parent, such as lifecycle methods, state management, and event handling.
+
+Props: In React, components receive data through props. Initializing the parent class properly ensures that the props mechanism is set up correctly, enabling your subclass to receive and process props passed down from its parent components. Without proper initialization of the parent class, props might not be handled correctly, leading to unexpected behavior or errors in your application.
+
+
+
+
+
+Constructor :
+
+The constructor() function is a special method in a JavaScript class that gets called when the class is instantiated (i.e., when you create an instance of the class).
+
+The constructor method is being called when an instance of the UserClass component is created. Specifically, the constructor is called at the moment when React instantiates the component.
+
+In the case of your UserClass component, the constructor method is called when React first creates an instance of the UserClass component, which typically occurs when the component is mounted (i.e., rendered for the first time) in the application.
+
+
+The constructor is not called every time a component re-renders. The constructor method is called only once during the initial creation of the component instance, typically when the component is mounted (i.e., added to the DOM) for the first time.
+
+After the initial render, subsequent re-renders of the component do not involve calling the constructor again. Instead, React updates the existing component instance by comparing the previous props and state with the new props and state, and then it re-renders the component accordingly.
+
+
+
+
+
+
+
+
+ In JavaScript classes, including React components, instance properties and methods are accessed using the this keyword. When you define a class component like UserClass, the component instance (i.e., the instance of the UserClass class) has access to its props via this.props.
+ 
+ 
+ 
+ 
+ 
+ The componentDidMount lifecycle method in React class components is invoked immediately after a component is mounted, i.e., inserted into the DOM tree.Ideal for making an API call.You can make it async by writing async in front of this method.
+
+ 
+ 
+ class components Lifecycle :
+ 
+ 
+ 
+ 
+constructor of parent is called
+render of parent is called
+constructor of child is called
+render of child id called
+componentDidMount of child is called 
+componentDidMount of parent is called
+
+
+
+this is how the logs have printed in the console for About.jsx and UserClass.jsx which shows that whenever an instance of a class component is created/ or whenever a class component is mounted on DOM , firstly the constructor of the class is called then render is called and then componentDidMount.
+
+For a Parent child relationship as the child mount on DOM is a part of render itself so in that case child component is mounted forst on dom and hence child's componentDidMount is called first .
+
+
+
+Now when we have three instances of the same child class component in the About.jsx then the logs found are like this :
+
+
+ constructor of parent is called
+ render of parent is called
+ Shivani sharma (class 1)constructor of child is called
+ Shivani sharma (class 1)render of child id called
+ Shivani sharma (class 2)constructor of child is called
+ Shivani sharma (class 2)render of child id called
+ Shivani sharma (class 3)constructor of child is called
+ Shivani sharma (class 3)render of child id called
+ Shivani sharma (class 1)componentDidMount of child is called 
+ Shivani sharma (class 2)componentDidMount of child is called 
+ Shivani sharma (class 3)componentDidMount of child is called 
+ componentDidMount of parent is called
+ 
+ 
+ 
+ Why is it so ?
+ 
+ 
+ The order we have expected here was different so what happened ?  we understood the above concept a little different way . 
+ 
+ 
+ Actually react lifecycle methods work a little different like below:
+ 
+ Constructor > Render > Update the DOM > componentDidMount
+ constructor + render ( Render phase )
+ update DOM + componentDidMount (commit phase)
+ 
+so react lifecycle methods can be divided into these two phases .
+ 
+ so basically this is how it is working behind the scenes and that is why the componentDidMount is called after the rendering of all the  components 
+ 
+ (As update the DOM is expensive of all , React is going to do this part in one single batch for its component , No matter how much children does this component have.)
+ 
+ 
+ 
+ 
+ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ 
+ 
+ please refer to above url for a detailed view of react lifecycle methods.
+ 
+ 
+ As you can see in the diagram , firstly constructor of the component is called , then render the component with all the default/initial values (HTML render/DOM update) then componentDidMount called . In the componentDidMount as you have called the API to fetch data and then that data is set in the local state variables hence the state of the component is updated now so the Updating part begins now where you can see that again render will happen with new values and componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render and then last is componentWillUnmount()  : It is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method,
+
+
+ 
+ 
+ 
+ 
+

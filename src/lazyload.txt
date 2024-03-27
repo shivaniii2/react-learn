@@ -1,0 +1,23 @@
+parcel bundles your app in one file (index.fc16f3f8.js) that loads to load your app . 
+but as your app grows thid file also grows in size and hence increase the loading time of your app hence making your app slow.
+Lazy loading is a technique used in web development to defer the loading of non-essential resources (such as images, scripts, or other content) until they are actually needed. This can help improve page load times and overall performance, particularly on pages with a lot of content or resources.
+
+lazy loading is commonly used with code splitting, a feature that allows you to split your code into smaller chunks, which are then loaded dynamically as needed.
+
+
+Also lazy loading is known with names such as "Dynamic loading","Deferred Loading","On-demand Loading" , "Conditional Loading:".
+
+
+This technique splits your code and bundle that component seprately whenever that component is required.
+
+You can use the React.lazy() function to dynamically import a component only when it's needed. This function takes a function that calls a dynamic import() statement, which returns a promise for the module. React will then automatically load the component when it needs to be rendered.
+
+
+sometimes the build takes time /Lazy loaded component take time to load whenever called so ,When using lazy loading, you can wrap your lazy-loaded components in a Suspense component. This allows you to display a loading indicator or fallback UI while the component is being loaded.
+
+
+let us see live now through component Groceries.
+
+
+if you don't use suspense then error comes up : why ?
+

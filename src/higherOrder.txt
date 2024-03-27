@@ -1,0 +1,10 @@
+A Higher Order Component is a function that takes a component and returns a new component with additional functionality. Essentially, it's a way to "wrap" a component with some logic or behavior.
+
+How do Higher Order Components work?
+
+Accept a Component: HOCs accept a component (or multiple components) as an argument.
+Enhance the Component: Inside the HOC, you can add additional props, state, or other functionalities to the component it received.
+Return a New Component: Finally, the HOC returns a new component with the added functionality.
+
+
+In this project we will modify our ResCard component and add a label to it if the locality is "Gandhi nagar". Let us see how 

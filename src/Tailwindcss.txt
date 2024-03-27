@@ -1,0 +1,30 @@
+there are different css libraries that you can use in your project :
+
+chakra UI , bootstrap , material UI , ant design etc.
+
+
+let us understand about the tail wind css in detail :
+
+before that let us configure tailwind css in our project :
+As our project is using parcel , follow the steps mentioned in the doc :
+
+
+
+Using Tailwind CSS comes with several advantages:
+
+Rapid Development: Tailwind CSS provides a vast library of utility classes that cover a wide range of CSS properties. This allows developers to quickly style elements without having to write custom CSS.
+
+Consistency: With Tailwind, styling is consistent across the entire project because developers use the same set of utility classes. This helps maintain a cohesive design system.
+
+Flexibility: Tailwind CSS is highly customizable. Developers can easily extend or override existing styles, and configure the framework to suit the needs of their project.
+
+Responsive Design: Tailwind CSS includes responsive utility classes that make it easy to create responsive layouts without writing media queries manually. This streamlines the development process for building responsive web applications.
+
+Tailwind CSS only includes the styles that are explicitly used, leading to smaller CSS file sizes and faster load times.
+
+Maintainability: Since styles are defined directly in the HTML markup using utility classes, it's easier to understand where styles are applied. This improves code readability and makes maintenance easier compared to traditional CSS where styles may be scattered across multiple files.
+
+
+
+in short I would say there will be no unused css code in your project + you can easily understand what a class is doing as all the code is there in the html only + you can have a responsive classes for different device sizes.
+

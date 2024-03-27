@@ -1,0 +1,23 @@
+why do we use usestate for local var in react when we can have normal ones
+The Answer lies here :
+Reactivity: When a state variable managed by useState changes, React automatically re-renders the component. This ensures that your UI reflects the latest state of your application without manual intervention.
+Encapsulation: State variables declared using useState are encapsulated within the component. They are not accessible from outside the component, which helps in maintaining data integrity and prevents unintended modifications from other parts of the application.
+Immutability: State variables declared with useState are immutable. You cannot directly modify them; instead, you use the setter function provided by useState to update the state. This ensures that state changes are predictable and helps prevent bugs caused by unexpected mutations.
+Performance: React optimizes the re-rendering process by batching state updates and only re-rendering the component when necessary. This helps improve the performance of your application, especially in complex UIs.
+
+
+React rerenders the whole component with the updated values whenever there is a change in the component and updates only part of UI where there is a change through reconcilation theory.
+
+
+so the whole header component rerenders whenever the local state variable updates . so whenever you click on login button in header the entire header component is rerendering with the updated values .
+
+
+React is fast as it has this virtual dom which is an object representation of the jsx code and it  uses reconcilation algo to find the diff between the old vd and the updated one and rerenders the entire component and  updates only that part of the ui that needs to be updated .
+
+
+
+even when you are binding an input field value to a local state variable in react , everytime the user is typing a word in it , the local state variable is updating and hence the entire (body) component rerenders . so if you are typing 50 words then the component will be rerendered 50 times . isn't that amazing ?
+
+  
+  
+  corsproxy.io == a url that you can append in front of your requested URL in an API to amke sure that CORS blockage is avoided.

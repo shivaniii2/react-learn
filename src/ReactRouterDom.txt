@@ -1,0 +1,3 @@
+React Router DOM is a popular routing library for React applications. It enables you to handle routing in a React application by managing the URLs in the browser and rendering the appropriate React components based on the URL.
+
+This allows you to create single-page applications (SPAs) where different components are rendered based on the URL, without the need for a full page reload.

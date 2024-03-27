@@ -1,0 +1,22 @@
+can the child component call the setter function of parent or can a child component modify the state of a parent componen ? In React, child components cannot directly modify the state of a parent component. This is because React enforces a unidirectional data flow, where data (including state) flows from parent components to their children via props.However, you can achieve the effect of a child component modifying the state of a parent component by passing down callback functions as props from the parent to the child. These callback functions, when called by the child component, can then update the state of the parent component. let us see how in action now:
+
+
+
+In React, when you pass a function from a parent component to a child component as a prop, the child component can call that function to communicate with the parent component. This is known as "function prop drilling" or "callback prop."
+
+
+In the parent component , the toggleShowBody function is defined as a callback that toggles the showBody state
+
+In the child component, the toggleShowBody function is invoked when a certain action, such as clicking on an element, occurs:
+
+
+When toggleShowBody is called in the child component, it executes the function passed from the parent component, which in turn updates the state in the parent component.
+
+
+This mechanism allows the child component to communicate with the parent component and trigger state updates in the parent based on certain actions or events that occur in the child component. It's a common pattern in React for handling interactions between components that are not directly related to each other in the component tree.
+
+
+
+
+
+

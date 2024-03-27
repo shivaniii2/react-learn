@@ -1,0 +1,32 @@
+Basic Usage:
+
+The spread operator (...) allows an iterable (like an array or string) to be expanded into individual elements. Here's a basic example with an array:
+
+const numbers = [1, 2, 3];
+console.log(...numbers); // Output: 1 2 3
+
+In this example, the spread operator ...numbers expands the array numbers into individual elements when logging to the console.
+
+Array Concatenation:
+You can use the spread operator to concatenate arrays:
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const combinedArray = [...arr1, ...arr2];
+console.log(combinedArray); // Output: [1, 2, 3, 4, 5, 6]
+
+Here, the spread operator is used to merge arr1 and arr2 into a single array combinedArray.
+
+
+
+Object Spread:
+The spread operator can also be used with objects to create a new object with the properties of an existing object:
+
+const person = { name: 'John', age: 30 };
+const updatedPerson = { ...person, age: 31 };
+console.log(updatedPerson); // Output: { name: 'John', age: 31 }
+console.log({...person})  Output: { name: 'John', age: 30 }
+
+
+Yes, { ...person } creates a separate object in memory. This is because the spread operator { ... } in JavaScript creates a new object and copies the properties of the original object into the new one.
+

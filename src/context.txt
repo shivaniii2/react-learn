@@ -1,0 +1,42 @@
+In React, a context is a mechanism for passing data through the component tree without having to pass props down manually at every level.
+
+It allows you to share values like themes, user authentication status, preferred language, etc., between components of different levels in the component tree.
+
+Context consists of three main parts:
+
+Context Object: This is created using the React.createContext() function. It returns an object with a Provider component and a Consumer component.  In the userContext.js , the userContext is the object(that has those two important components i.e provider and consumer) returned by createContext function. You can think of userContext  as a container for the context value.
+
+
+Provider Component: This component is used to provide the context value to the tree below it. It accepts a value prop to pass the data.
+
+Consumer Component (or useContext hook): This component (or hook) is used to consume the context value within child components. It allows components to access the context value without explicitly passing it through props.
+
+
+
+Once you have created a context for a value , now you can access this value anywhere in the entire app using useContext hook.
+
+Let us dive into useContext hook which is a consumer in case of functional components .
+
+As there can be multiple context that you have created in your project for different values so , you can pass the name of the context object whose data you want to access.
+
+Let us see the example of using/consuming userContext in the header component and Contact component and until now as there is no Provider component so the deafault value will be consumed.
+
+
+Now as in real life applications , I assume that some authentication is done after user added password and username and user name is now returned by an API call response and this is the actual username that should be displayed or consumed by the entire application or you want this value to be consumed by all the components that are consuming this context.
+
+For such cases when the default value is not to be used and a different value needs to be consumed , the Provider component comes into picture.It provides the value(updated one) to the tree below it.Let us see how in the App3.js
+
+
+If you wrap only Header component with userContext.Provider and pass the value prop to it then the updated value will be consumed by the Header component only and rest other components who are consuming like Contact component will use the default value.
+
+
+
+Now let us see how can we update the context value in real time (live).
+
+Now we want thata s we put username in the input box in the body component it gets updated for all the consumers(header and contact page) of the context.
+As the loggedInUser value is coming from Provider in App3.js we can set the userName in the App3.js through body component by passing setter of userName in the value prop of Provider. see how?
+
+
+
+
+

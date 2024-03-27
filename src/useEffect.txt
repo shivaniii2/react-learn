@@ -1,0 +1,36 @@
+      
+      
+      
+      
+ we are now on our way to make an API call to get all the data we have mocked and placed in resList file . so as now we are talking about fetching data from an API , we should be aware of another important hook on react which is useEffect.
+    
+    
+    The useEffect hook is a fundamental part of React functional components. It allows you to perform side effects in your components, such as data fetching, subscriptions, or manually changing the DOM, after React has updated the DOM.
+    
+    The useEffect code will be executed once the entire DOM is rendered .
+    
+    It takes two params : one is a callback(a function that represents the side effect you want to perform.) and other is an array of dependencies( If provided, the effect will only re-run if any of the dependencies change. If not provided, the effect runs after every render.)
+    
+    It has one more optional param that is a clean up function that runs when the component unmounts or when the dependencies change and before the next execution of the effect.
+    
+    Syntax would look something like this :
+    useEffect(() => {
+        // Side effect code goes here
+        return () => {
+          // Cleanup code goes here (optional)
+        };
+      }, [dependency]);
+      
+      
+      
+ Remember this : useEffect will always be called on initial render .
+ 
+As dependency array argument is optional so if you don't have any dependency then useEffect will be called everytime the component rerenders.
+
+If you have an empty array of dependency in your useEffect then the useEffect will be called only on the initial load and not on every time the component rerenders.
+
+If you have a dependency array then the useEffect will be called only whenever that dependency changes.Keep in mind that in all three cases useEffect is being called on the initial load no matter what.
+
+
+
+      

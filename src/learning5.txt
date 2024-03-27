@@ -1,0 +1,31 @@
+
+Monolithic and microservices are two architectural styles for building software applications, each with its own set of advantages and challenges.
+In a monolithic architecture, the entire application is built as a single, self-contained unit. All components, such as user interface, business logic, and data access layers, are tightly integrated.Maintenance and updates can also be complex, as changes to one part of the application may require redeployment of the entire system.
+Monolithic architectures are typically suited for small to medium-sized applications with relatively straightforward requirements.
+
+
+
+
+
+Microservices architecture breaks down an application into a collection of loosely coupled, independently deployable services. Each service is responsible for a specific business function and can communicate with other services via APIs.
+Microservices enable teams to work on different parts of the application independently, allowing for faster development and deployment cycles.
+Microservices architectures are typically suited for large, complex applications with evolving requirements and where scalability and flexibility are crucial.
+Containerization technologies like Docker and container orchestration platforms like Kubernetes are commonly used in microservices architectures to streamline deployment and management.
+However, managing the lifecycle of containers, service discovery, load balancing, and rolling updates can still be complex tasks that require careful planning and tooling.
+
+
+
+
+
+
+
+There are two ways of making an API call :
+
+App loads > make an API CALL > Render 
+
+and then there is :
+
+App loads > render(whatever you have like skelton) > make an API call  > Render
+
+In react we go for option two as it gives a better UX experience.
+
