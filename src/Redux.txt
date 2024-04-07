@@ -1,0 +1,157 @@
+Redux is a predictable state container for JavaScript applications.
+
+Let us understand what does this defination means:
+
+Redux provides a centralized place to store the state of your application. This centralized state container is called the "store". Instead of dispersing state across multiple components, Redux encourages keeping all the application state in one store. This makes it easier to manage and access the state, as well as to reason about the state changes within your application.   - Hence State Container(store).
+
+
+ Redux promotes a predictable state management pattern. It follows strict rules for how and when the application state can be updated. In Redux, state changes are made by dispatching actions. Actions are plain JavaScript objects that describe what happened in your application. These actions are dispatched to the Redux store, where they are processed by functions called "reducers".   - Hence predictable.
+ 
+ 
+ 
+ Redux follows a unidirectional data flow pattern, meaning that data flows in one direction through your application. When an action is dispatched, it triggers the execution of reducers, which then calculate the new state based on the current state and the action. This new state is then saved in the store, and any components subscribed to the store are notified of the state change and can re-render accordingly. - unidirectional flow.
+ 
+ 
+ 
+ Redux is designed to work with JavaScript applications, particularly those built with frameworks like React, Angular, or Vue.js. 
+ 
+ 
+ Single Source of Truth: The entire state of your application is stored in a single JavaScript object, known as the "store". This makes it easy to access and manage the state from any part of your application.
+ 
+ 
+ React Redux and Redux Toolkit are both tools commonly used in conjunction with Redux for building React applications. 
+ 
+ 
+ Let us learn about React Redux :
+ 
+ React Redux is the official React bindings for Redux. It provides a set of APIs that allow React components to interact with the Redux store.
+ With React Redux, you can connect your React components to the Redux store, making it easy to access and update the state from your components
+ 
+ 
+ what about redux toolkit ?
+ 
+ Redux Toolkit is the official, opinionated, batteries-included toolset for efficient Redux development.
+ Let us understand the meaning of above defination:
+ 
+ Official: Redux Toolkit is developed and maintained by the Redux team, making it the recommended toolset for Redux development. Being an official toolset means it's well-supported, actively maintained, and aligned with the best practices of Redux.
+ 
+ 
+ Opinionated: Redux Toolkit comes with pre-defined opinions and conventions about how Redux applications should be structured and developed. These opinions are based on the collective experience of the Redux community and are designed to encourage best practices and patterns for Redux development.
+ 
+ 
+ Batteries-Included: Redux Toolkit is a comprehensive toolset that includes everything you need for efficient Redux development out of the box. It provides a set of utilities, functions, and abstractions that simplify common Redux use cases and reduce boilerplate code so that you can focus on the logic instead of configuring store etc.
+ 
+ 
+ 
+ 
+ 
+ A theoretical picture of how can we write and read data in/from redux store :
+ 
+ 
+ You can not directly add data to the slices in redux store.
+ (Slices are logical seprations .)
+ 
+ if you want to click on the Add button and update a value in the store then you have to first dispatch an action that will invoke a function (Reducer function ) and then that function will make changes in the state in the redux store.
+ 
+ if you want your header component to listen to these changes that happened in the store then this header component has to subscribe to the  store and that can happen through a selector.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ so we have now successfully installed redux toolkit and react redux in our project .
+ we have configured a store using redux toolkit in appStore.js
+ Now we need to provide this store to our react app so that the communication can exist and as we know the bridge between react components and redux store  is fulfilled by react redux. so, we have imported Provider from react-redux in App3.js
+ 
+ Provider takes an argument store (key) and the value in our case is appStore.js
+ 
+ 
+ Now as the store is configured and also has been provided to our react app , this is the time to create a slice in our store.
+ 
+ In Redux, a "slice" refers to a portion of the Redux store that is responsible for managing a specific piece of application state. Slices are created using the createSlice function provided by Redux Toolkit.
+ Defining a Slice: To define a slice, you use the createSlice function from Redux Toolkit. This function takes an object with three properties:
+ 
+ name: A string identifier for the slice.
+ initialState: The initial state value for the slice.
+ reducers: An object containing reducer functions, each responsible for handling specific actions related to the slice.
+ The reducers object inside a slice contains one or more reducer functions. These reducer functions are responsible for updating the slice's state in response to dispatched actions(You can think of actions as small API's for communicating with redux store). Each key in the reducers object corresponds to an action type, and the value is a reducer function that takes the current state and action payload as arguments and returns a new state.
+ 
+ Let us see all in action in cartSlice.js
+ 
+ 
+ how to write everything while creating a slice and then importing it is all is predefined by redux toolkit so don't bother about those syntax for exports etc . Just remember that you have to export these actions and reducers from slice.
+ 
+ 
+ now we need to add this slice to our store.
+ Store has this one reducer used to update data of store. This one big reducer is for appStore and  consists of small reducers from different slices as each slice will have its own reducers.
+ 
+ 
+ Now after we have added the slice to our store , this is the time to see how can we read items from redux store .
+ 
+ so to read data from our redux store we need to use useSelector hook of react .
+ The useSelector hook is a React hook that allows you to extract data from the Redux store state in your functional components.use the useSelector hook to select the data you need from the Redux store state. You pass a selector function as an argument to useSelector, which specifies the part of the state you want to extract.
+ 
+ FOR EXAMPLE : in our case we just want to get access to the items in the cart slice of store .
+ 
+  const cart = useSelector((store)=>store.cart.items)
+  
+  The above line is giving access to the items present in our cart slice .
+  In Redux, the useSelector hook provides access to the current state of the Redux store. When you use useSelector, you're essentially subscribing to changes in the Redux store and extracting specific pieces of state from it.
+  In your case, even though items are in the initial state, useSelector still gives you access to them because Redux is designed to manage and update state over time.
+  When you use useSelector((store) => store.cart.items), you're telling Redux to give you access to the items array from the cart slice of the store.
+  
+  
+  
+  Now let us add the item that we are clicking "add"button on  to the cart . 
+  For this we need to dispatch an action of addItem as in the slice we have a logic in the reducer function that pushes the action payload to the current state which is initially an empty array and then return a new state . Let us see all this in action in ResMenuCatBody.jsx
+  
+Note :   
+  
+onClick={handleClick}:
+
+In this case, you're passing a reference to the handleClick function directly to the onClick event handler. This means that when the element is clicked, the handleClick function will be called. However, it will be called without any arguments.
+
+onClick={() => handleClick(item)}:
+
+Here, you're using an arrow function to create an inline function that calls handleClick with the item argument when the element is clicked. This allows you to pass arguments to the handleClick function. This approach is commonly used when you need to pass additional arguments to the event handler.
+
+onClick={handleClick(item)}:
+
+This syntax directly calls the handleClick function with the item argument when the component renders. As a result, handleClick is called immediately during the render process, not when the element is clicked. This is not the intended behavior for handling click events in React, as you typically want the event handler to execute only when the element is clicked.
+
+
+
+Now we want to dispatch an action of addItem whenever the user clicks on the Add button so for that there is another hook given to us by react redux and that is useDispatch . 
+just like there is a hook useSelector to subscribe the data in redux store , similarly there is this useDispatch hook to dispatch an action which triggers state update in redux store 
+To use this we need to :
+Import the Hook: First, you need to import the useDispatch hook from the react-redux package.
+Access the Dispatch Function: Inside your functional component, use the useDispatch hook to get access to the dispatch function.Now that you have access to the dispatch function, you can use it to dispatch actions to the Redux store.
+
+
+As now you have dispatched the action "addItem" , anything you pass in this as argument is action payload.
+
+
+Now you want that cart page has items that are there in the store so we will have access to them again through useSelector.
+
+
+
+Always keep in mind that you should be really carefull about the portion of the store that you want to subscribe to.
+subscribing to the whole store is not an efficient way as when the application grows in size , I don't want my specific component to be affected by small changes in the store that are irrelevant to the component.
+
+
+That is why the name is useSelector because you want to subscribe to the selected part of the store.
+
+
+One more point not to forget is : In the app store that big reducer which has multiple small reducers each from a slice is "reducer" and the one in the slices is "reducers".
+
+
+
+
+In the vanilla redux : mutating state was not allowed ( spread operator use and copy of the state is modified and then that copy is returned and also returning is mandatory back then )but in redux toolkit we have to mutate the state and also returning is not important.
+
+
+
+There is current function that is important when you want to debug and see the value of your state .
+

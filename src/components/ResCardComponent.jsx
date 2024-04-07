@@ -8,7 +8,7 @@ const ResCard = (props) => {
 
   // Please do not forget that everything you write as an attribute to the child jsx will be wrapped by react in an object form so props are nothing but an object with key and values and you know this concept of destructuring in js that helps in extracting the values of ararys and object properties in a more concise and convenient way.
   return (
-    <div className="w-[250] bg-slate-300 p-4 m-3 h-[510] rounded-lg hover:bg-gray-400">
+    <div data-testid="rescard" className="w-[250] bg-slate-300 p-4 m-3 h-[510] rounded-lg hover:bg-gray-400">
       <img className="rounded-lg" src={CDN_URL + cloudinaryImageId}></img>
       <h3 className="py-2 text-lg font-bold">{name}</h3>
       <h4>{cuisines.join(", ")}</h4>

@@ -1,0 +1,73 @@
+{
+    "info": {
+        "id": "323624",
+        "name": "Narwana Junction Kitchen",
+        "cloudinaryImageId": "wche4z0roingfahvpvtz",
+        "locality": "Zirakpur",
+        "areaName": "Gazipur",
+        "costForTwo": "₹200 for two",
+        "cuisines": [
+            "Punjabi",
+            "Snacks",
+            "Indian",
+            "Biryani"
+        ],
+        "avgRating": 4.2,
+        "parentId": "144300",
+        "avgRatingString": "4.2",
+        "totalRatingsString": "1K+",
+        "sla": {
+            "deliveryTime": 41,
+            "lastMileTravel": 7.3,
+            "serviceability": "SERVICEABLE",
+            "slaString": "40-45 mins",
+            "lastMileTravelString": "7.3 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-04-12 00:00:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "₹125 OFF",
+            "subHeader": "ABOVE ₹199",
+            "discountTag": "FLAT DEAL"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+    },
+    "analytics": {
+        "context": "seo-data-f6873791-dca5-403d-a04a-042e54666a48"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/narwana-junction-kitchen-zirakpur-gazipur-chandigarh-323624",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

@@ -34,14 +34,14 @@ so now you can run your app through react from node_modules itself.
 
 
 
-Did you see something ? As soon as you are making any chnages to your code at any point and saving the file , page reloads automatically and reflects the changes we just made in our code . How ?
+Did you see something ? As soon as you are making any changes to your code at any point and saving the file , page reloads automatically and reflects the changes we just made in our code . How ?
 this is something given to us by parcel through HMR 
 Let us understand HMR in detail:
 HMR stands for Hot Module Replacement, and it is a feature that allows developers to update the application code in real-time while the application is running, without requiring a full page reload. This is particularly useful during the development phase as it significantly speeds up the development process.
 HMR enables the replacement of modules (pieces of code) in an application while it is running. Instead of refreshing the entire page, only the modified modules are updated, preserving the current application state.
 Parcel, the web application bundler, does support Hot Module Replacement (HMR) out of the box. HMR is a native feature in Parcel, and you typically don't need to configure or set it up explicitly.
 Parcel caches dependencies between builds. When you run Parcel for the first time, it downloads and caches the dependencies specified in your project. Subsequent builds can reuse these cached dependencies unless there are changes or updates.
-Hence teh above line concluded by our application is taking different amount of time to build.
+Hence the above line concluded by our application is taking different amount of time to build.
 
 parcel also uses this file watching algorithm which is written in c++ .
 do you know that image rendering in dom is most expensive and Parcel includes built-in image optimization as part of its asset processing capabilities. When you use Parcel to build your project, it automatically optimizes images to reduce file sizes without compromising visual quality. This helps improve the performance of your web application by reducing the amount of data that needs to be downloaded by users.
@@ -54,7 +54,7 @@ Parcel does tree shaking : The bundler analyzes the dependencies between modules
 Parcel creates a different bundle for development and different for production.
 
 
-let us see ow can we make a production build through parcel : command : npx parcel build index.html
+let us see how can we make a production build through parcel : command : npx parcel build index.html
 As soon as you will run this command you will see that there is this error "Target "main" declares an output file path of "App.js" which does not match the compiled bundle type "html". this is because when you did npm init a configuration file named package.json was created  that asked for entry point and it was "App.js" so it conflicted with the index.html given as entrypoint in above command so you remove that line in package.json file first and then run the above file.
 As you can see that dist had the development build and this now has production build too right ?  you cna see the optimised compressed minified code ready for production.
 This production ready app is fast ofcourse.
@@ -62,10 +62,10 @@ This production ready app is fast ofcourse.
 
 
 
-I can even decide that on which browsers to which version should my app definitely be working by writing tit as configurationin package.json.
+I can even decide that on which browsers to which version should my app definitely be working by writing it as configurationin package.json.
   
   
-  A liitle take away in between :
+  A little take away in between :
   (
     http vs https 
     HTTP is the standard protocol for transferring data over the internet, but it does not provide any encryption or security measures. This means that the data transmitted between the user's browser and the website's server is not encrypted and can be intercepted by third parties. For this reason, HTTP is considered "not secure."

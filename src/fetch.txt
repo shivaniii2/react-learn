@@ -1,0 +1,25 @@
+The fetch function is a built-in browser API in JavaScript used to make HTTP requests. It allows you to fetch resources such as JSON data, HTML files, images, etc., from a server asynchronously.
+
+The fetch function returns a Promise that resolves to a Response object representing the response to the request.
+
+The Response object represents the response to a request made by the fetch function. It contains information about the response, such as the status code, response headers, and response body. The Response object provides various methods for accessing and working with the response data. One of the methods provided by the Response object is the json() method.
+
+json() Method:
+The json() method of the Response object is used to extract JSON data from the response body. It reads the body of the response as JSON and returns a Promise that resolves to the parsed JSON data.
+
+
+
+
+in here while trying to mock the fetch data :
+
+global.fetch = jest.fn(() => {
+    return Promise.resolve({
+        json: () => {
+            return Promise.resolve(MOCK_DATA);
+        }
+    });
+});
+
+
+We're overriding the global fetch function with a Jest mock function. This mock function returns a Promise that resolves to an object.
+This object has a json() method, which is another function. This function returns a Promise that resolves to MOCK_DATA, which presumably contains JSON data.

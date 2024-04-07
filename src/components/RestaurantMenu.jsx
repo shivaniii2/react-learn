@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useParams } from "react-router-dom";
@@ -50,8 +50,8 @@ const RestaurantMenu = () => {
   //   setResMenu(json.data);
   //   console.log(json);
   // };
-  const cardInfo = resMenu?.cards[0]?.card?.card?.info;
-  const infoCard = resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  const cardInfo = resMenu?.cards[2]?.card?.card?.info;
+  const infoCard = resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
   const menuCategoriesToDisplay = infoCard && infoCard.filter((c)=> c.card.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
   
   return (
@@ -78,11 +78,11 @@ const RestaurantMenu = () => {
     
        
        // Refer to childToParent.txt
-      // toggleShowBody={()=>{setShowIndex(index)}}
+      toggleShowBody={()=>{setShowIndex(index)}}
       
       // Now if you want to collapse the expanded index on clicking it again then you can modify the above LOC 80 as :
        
-       toggleShowBody={() => setShowIndex(prevIndex => prevIndex === index ? null : index)}
+      // toggleShowBody={() => setShowIndex(prevIndex => prevIndex === index ? null : index)}
       //  Always remember that When you call setShowIndex with a function argument, React will internally call this function and pass the current state value of showIndex as an argument. This argument, conventionally named prevState or prevIndex, represents the previous state value of showIndex.prevIndex refers to the previous state value of the showIndex state variable. 
        
        />)})}

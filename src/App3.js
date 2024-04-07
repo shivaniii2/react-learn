@@ -4,21 +4,22 @@
 // a footer : that has links , copyrights , Address etc.
 // our website is driven by configuration sent by backend .
 import reactDom from "react-dom/client";
-import Header from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
 import { Suspense, useEffect, useState } from "react/cjs/react.development";
 
-
+import Header from "./components/Header";
 // the above line is also making  0 difference with the line : import Header from "./components/Header.jsx" because this behaviour is part of  module resolution algorithm of the JavaScript runtime.JavaScript runtime will look for files with various extensions in the specified path until it finds one that matches.
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+// createBrowserRouter is a  component provided by React Router DOM. It's used to wrap your entire React application and provide routing functionality.
+// this is responsible for providing the routing functionality to your React application. It listens for changes in the URL and renders the appropriate components based on the current URL path.
+
 //import Contact from "./components/Contact";
 import ErrorPage from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Cart from "./components/Cart";
 import { lazy } from "react/cjs/react.development";
 //import Grocery from "./components/Grocery";
-// createBrowserRouter is a  component provided by React Router DOM. It's used to wrap your entire React application and provide routing functionality.
-// this is responsible for providing the routing functionality to your React application. It listens for changes in the URL and renders the appropriate components based on the current URL path.
 
 // lazy loading conecept : refer to lazyload.txt
 const Grocery = lazy(()=>import("./components/Grocery"))
@@ -26,6 +27,8 @@ const Grocery = lazy(()=>import("./components/Grocery"))
 //const Grocery = lazy(()=>{ return import("./components/Grocery")})
 const Contact = lazy(()=> import("./components/Contact"))
 import userContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 
 
@@ -45,14 +48,17 @@ const AppLayout = () => {
   
   
   return (
-    <userContext.Provider value={{loggedInUser:userName,  setUserName}}>
+    <Provider store={appStore}>
+       <userContext.Provider value={{loggedInUser:userName,  setUserName}}>
       {/* Refer to context.txt for above line */}
        <div >
       <Header />
-      <Outlet/>     {/* Child routes will be rendered here */}
+      <Outlet/>     {/* Child routes will be rendered here so Outlet -  It acts as a placeholder within a parent route component, allowing child routes to be rendered within it.*/}
       {/* <Body/>  */}
     </div>
     </userContext.Provider>
+    </Provider>
+   
    
   );
 };
@@ -91,6 +97,10 @@ const appRouter = createBrowserRouter([
         <Grocery />
       </Suspense>
       
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
       }
       
     ],

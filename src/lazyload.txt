@@ -8,7 +8,7 @@ lazy loading is commonly used with code splitting, a feature that allows you to 
 Also lazy loading is known with names such as "Dynamic loading","Deferred Loading","On-demand Loading" , "Conditional Loading:".
 
 
-This technique splits your code and bundle that component seprately whenever that component is required.
+This technique splits your code and bundle that component separately whenever that component is required.
 
 You can use the React.lazy() function to dynamically import a component only when it's needed. This function takes a function that calls a dynamic import() statement, which returns a promise for the module. React will then automatically load the component when it needs to be rendered.
 

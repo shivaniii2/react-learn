@@ -1,0 +1,23 @@
+npm:
+
+npm stands for Node Package Manager. It is the default package manager for Node.js and JavaScript.
+
+npm is primarily used for installing, managing, and publishing packages (dependencies) for your Node.js projects.
+
+It is typically used for tasks like installing packages (npm install), updating packages (npm update), removing packages (npm uninstall), and running scripts defined in your package.json file (npm run).
+
+
+npx :
+
+npx is a package runner tool that comes bundled with npm (since npm version 5.2.0).
+It is used to execute Node.js packages directly from the npm registry without having to install them globally or locally.
+npx allows you to run commands from packages that are not installed on your system, by fetching and executing them temporarily.
+It is commonly used for running command-line tools, scripts, or one-off tasks without the need to install them globally or cluttering up your project's dependencies.
+
+In general, npm is used for managing project dependencies and scripts, while npx is used for running command-line tools and scripts temporarily without installing them globally or locally.
+
+
+
+
+
+

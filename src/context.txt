@@ -4,14 +4,21 @@ It allows you to share values like themes, user authentication status, preferred
 
 Context consists of three main parts:
 
-Context Object: This is created using the React.createContext() function. It returns an object with a Provider component and a Consumer component.  In the userContext.js , the userContext is the object(that has those two important components i.e provider and consumer) returned by createContext function. You can think of userContext  as a container for the context value.
+Context Object: This is created using the React.createContext() function. 
+createContext() creates a new context object. In your example, it's named userContext.
+The context object returned by createContext() (userContext in your case)includes a property called Provider. This Provider component is used to wrap parts of your component tree to provide the context value to its descendants.
+The context object also includes a property called Consumer. This Consumer component is a legacy feature of the Context API and is not commonly used anymore, especially with functional components. Instead, the useContext hook is preferred for consuming context values in functional components.
+ 
 
 
 Provider Component: This component is used to provide the context value to the tree below it. It accepts a value prop to pass the data.
 
 Consumer Component (or useContext hook): This component (or hook) is used to consume the context value within child components. It allows components to access the context value without explicitly passing it through props.
 
+he Provider component is created implicitly when you call createContext(). It is responsible for "providing" the context value to all the consuming components within its subtree. I meant that the Provider component is included as part of the context object returned by createContext(). You don't need to define or implement the Provider component separately; it's provided for you as part of the Context API.
 
+
+createContext() function is imported from React and is used to create a new context object. It accepts an optional argument, which is the default value for the context. In this case, the default value is an object with a property loggedInUser set to "Default"
 
 Once you have created a context for a value , now you can access this value anywhere in the entire app using useContext hook.
 

@@ -74,7 +74,7 @@ componentDidMount of parent is called
 
 this is how the logs have printed in the console for About.jsx and UserClass.jsx which shows that whenever an instance of a class component is created/ or whenever a class component is mounted on DOM , firstly the constructor of the class is called then render is called and then componentDidMount.
 
-For a Parent child relationship as the child mount on DOM is a part of render itself so in that case child component is mounted forst on dom and hence child's componentDidMount is called first .
+For a Parent child relationship as the child mount on DOM is a part of render itself so in that case child component is mounted first on dom and hence child's componentDidMount is called first .
 
 
 

@@ -18,5 +18,19 @@ Overall, React's combination of Virtual DOM, efficient reconciliation algorithm,
 
 
 
+# redux:
+
+
+install redux toolkit and react redux .
+Build our store. (configure the store)
+connect app with that store.
+create slice in store(cartSlice).
+dispatch(action).
+selector(subscribe)
+
+
+
+
+
 
 

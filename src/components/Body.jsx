@@ -2,7 +2,7 @@ import ResCard,{ withLocality }  from "./ResCardComponent";
 import react from "react";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
-import { useState, useEffect,useContext } from "react/cjs/react.development";
+import { useState, useEffect,useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useResponseList from "../utils/useResponseList";
@@ -59,7 +59,7 @@ const Body = () => {
           <div className="flex mb-3">
             <div className= "search-bar flex-class">
             {/* choose <input> when you need to capture short, single-line inputs, and choose <textarea> when you need to capture longer, multi-line inputs. */}
-              <input className="border border-solid border-gray-950" value = {inputVal} onChange = { (e) =>{setInputVal(e.target.value)}}> 
+              <input data-testid="inputbox" className="border border-solid border-gray-950" value = {inputVal} onChange = { (e) =>{setInputVal(e.target.value)}}> 
               {/* above we are binding whatever we write in the input box to the local state variable inputVal and also on changing/typing the input we are updating the local state var with the current input value .  Refer to learning6.txt again */}
               </input> 
               <button className="ml-4 bg-green-200 px-3 py-1 rounded-lg" onClick = {() =>{
@@ -79,7 +79,7 @@ const Body = () => {
                 const filteredList = listOfRes.filter((res) => {
                   return res.info.avgRating > 3;
                 });
-                setlistOfRes(filteredList);
+                setFilteredRes(filteredList);
                 console.log(listOfRes); // This will be the original array as far as we are not getting what filter returns so let us assign listOfRes back to what is being returned.
               }}
             >

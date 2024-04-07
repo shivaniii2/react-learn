@@ -26,7 +26,7 @@ import ReactDOM from "react-dom/client"
  // one thing i noticed that we can not log heading1 before rendering it while you can log heading een before rendering it.
  
  
- // jsx is not something that our browser can understand directly so it needs to be transpiled into regular JavaScript using tools like Babel so that browser can undertstand. go and have a look at babel which is a there in node mudules installed by parcel itself for this work.
+ // jsx is not something that our browser can understand directly so it needs to be transpiled into regular JavaScript using tools like Babel so that browser can undertstand. go and have a look at babel which is a there in node modules installed by parcel itself for this work.
  
  //Babel is commonly used for transforming JSX (JavaScript XML) syntax, which is commonly associated with React.js. JSX is a syntax extension that allows developers to write UI components more declaratively. Babel, along with the @babel/preset-react preset, can transpile JSX into standard JavaScript.
  

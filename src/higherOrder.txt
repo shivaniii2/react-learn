@@ -8,3 +8,16 @@ Return a New Component: Finally, the HOC returns a new component with the added 
 
 
 In this project we will modify our ResCard component and add a label to it if the locality is "Gandhi nagar". Let us see how 
+
+
+
+
+
+Let us be more clear about the defination of a Higher Order Function:
+
+
+A Higher Order Component is essentially a function that takes a component as an argument and returns a new component.
+
+
+This new component typically wraps the original component, enhancing its behavior or adding additional props.
+ HOCs can enhance components by adding additional props, managing state, 

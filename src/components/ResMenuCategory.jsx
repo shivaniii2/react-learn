@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import ResMenuCatBody from "./ResMenuCatBody";
 
 const ResMenuCategory = ({data,showBody,toggleShowBody}) =>{
@@ -13,9 +13,9 @@ const ResMenuCategory = ({data,showBody,toggleShowBody}) =>{
     }
     
     return (
-        <div className=" w-[50%] m-auto  shadow-lg rounded-lg  bg-gray-100 p-2  mb-4 cursor-pointer" onClick={handleClick}>
+        <div  className=" w-[50%] m-auto  shadow-lg rounded-lg  bg-gray-100 p-2  mb-4 cursor-pointer" onClick={handleClick}>
             <div className="flex justify-between ">
-            <span className="font-bold pl-3">{data.title} ({data.itemCards.length}) </span>
+            <span className="font-bold pl-3">{data.title}  </span>
             <span>⬇️</span> 
             </div>
            {showBody &&

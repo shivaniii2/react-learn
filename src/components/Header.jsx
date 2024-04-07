@@ -1,15 +1,19 @@
 // importing a named export has a slightly different syntax where we use curly braces as shown below.
 import { Link } from "react-router-dom";
 import {LOGO_URL} from "../utils/constants";
-import { useState , useEffect } from "react/cjs/react.development";
+import { useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/userContext";
-import { useContext } from "react/cjs/react.development";
+import { useContext } from "react";
+import { useSelector } from "react-redux";
 const Header = () => {
   const[btn , setBtn] = useState('Login');
   const statusNet = useOnlineStatus();
   const {loggedInUser} = useContext(userContext);
   //Refer to conetxt.txt for details.
+  
+  // subscribing to the store (refer to redux.txt)
+  const cart = useSelector((store)=>store.cart.items);
 
   
   
@@ -50,7 +54,11 @@ const Header = () => {
             <li className="ml-8 font-extrabold font-sans text-2xl"><Link to="/groceries">InstaStore</Link></li> 
             
             {/* ofcourse you can see the difference of page reload and not reload :) */}
-            <li className="ml-8 font-extrabold font-sans text-2xl">Cart</li>
+            <li className="ml-8 font-extrabold font-sans text-2xl">
+              <Link to="/cart">
+              Cart - ({cart.length})
+              </Link>
+              </li>
             <button className="ml-8 mr-4 min-w-24 font-extrabold font-sans text-2xl" onClick={() =>{ btn === "Login" ? setBtn('Logout'):setBtn('Login') }}>{btn}</button>
             
             {/* Refer to learnin6.txt please */}

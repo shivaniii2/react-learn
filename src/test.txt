@@ -1,0 +1,155 @@
+Three types of test from developer's side :
+1 Unit Testing
+2 Integration Testing
+3 End to end Testing
+
+
+We are going to use react Testing Library in our project.
+React Testing Library builds on top of DOM Testing Library
+It provides a simple and intuitive API for testing React components.
+It uses jest behind the scenes.
+Jest is a delightful JavaScript Testing Framework with a focus on simplicity developed by Facebook. It's widely used for testing React applications, although it can be used to test any JavaScript code. 
+Let us just install both React Testing Library and Jest first.
+Now in the docs of jest we found that for babel  we need to install some other dependencies also and  create a  configuration file .
+
+As we are using parcel as a bundler in our project and we know that it has its own babel configuration as parcel has alraedy babel that provides support for JSX .  JSX code is transpiled into regular JavaScript function calls before being executed in the browser.
+
+Now we have created our own config for the babel in babel.config.js so it is going to contradict with the one that parcel uses . 
+So , we need to go to parcel > docs > js > babel and there you can see that they are asking you to write one more config file that will help to over ride the config that parcel has its own with the one that you created for jest.
+ It is written there : To disable Babel transpilation in Parcel,override the default Parcel config  , create this another file .parcelrc .
+ 
+ 
+ 
+ 
+ Now you can just type npm run test and see what happens :)
+ 
+ No test cases found .
+ 
+ 
+ 
+ Now we need to initialise jest in our project  : npx jest --init (Remember : npm vs npx)
+ 
+ Did you notice that while initialising jest, it asks for some configuration , one of which was about test environment that will be used during testing and you selected jsdom. Now we have to install this library also as we are using jest version 29.7.0 in our project and for a jest version 28 or above we need to install jsdom library separately in our project.so let us just do that :   npm install --save-dev jest-environment-jsdom
+ 
+ 
+ 
+ after this whenever you will run npm run test it will throw : No tests found, exiting with code 1 and also :
+ 
+ testMatch: **/__tests__/**/*.[jt]s?(x), **/?(*.)+(spec|test).[tj]s?(x) - 0 matches
+ The above line shows that jest tried to find the test cases in the files which are under folder  __tests__  and they have extensions js or ts which means any js or ts file that you write inside folder __tests__ will automatically be considered as a test file
+ But right now we do not have such folder so let us create one .
+ 
+ 
+ Let us firstly create a test case for a normal js function . (sum.js)
+ 
+ 
+ Did you see there is this query and then assertion where you were expecting something .
+ Let us write a test case for contact us page .
+ so as the first thing we would love to test will be that if the page is loaded or not so let us write a test case for that :
+ 
+ 1. render method (Given by react testing library) is used to render React components into the DOM, allowing you to test their behavior and interactions.
+ 2. Then there is screen object in the query part of your test case . You import the screen object along with the render function from @testing-library/react.It allows you to query elements in the rendered component. so many queries that you can apply on your rendered components loke getByRole for elements, getByText etc.
+ 3.Then there is assertion part : Assertions are statements within your test code that verify whether the expected behavior of your application or component matches the actual behavior observed during testing.
+ 
+ 
+ But when you ran your first test case then it gave yoy the error :  SyntaxError: /Users/shivani.sharma2/namastey React/src/__tests__/contact.test.js: Support for the experimental syntax 'jsx' isn't currently enabled. Why ? 
+ Because the babel is not currently configured for your test cases and hence jsx elements are not supported in the tests. The same error log is asking to  Add @babel/preset-react in your project so let us install it first.
+
+But It still gave the same error as we didn't read the entire error message . It was asking us not only to add this library but also to  add that to the 'presets' section of your Babel config to enable transformation. 
+
+Let us add that.
+
+Even after that there are errors regarding the import statements that looks like this :
+import { useState } from "react/cjs/react.development"; so we replaced them with something like this:
+import { useContext } from "react";
+
+
+Still we encountered an error "Unable to find an element with the text: Contact Us Page"
+so we just replaced the getByText("Contact Us Page") with getByText(/Contact Us Page/) as This will match any text that contains "Contact Us Page".
+
+
+still there is error that says " TypeError: expect(...).toBeInTheDocument is not a function"
+
+This issue occurs when the toBeInTheDocument matcher is not available in the testing environment. so we need to make sure that one more package (dev dependency) is installed in our project i.e npm install --save-dev @testing-library/react @testing-library/jest-dom
+Now import it in your test file , this will give you access to all the matchers.
+
+
+
+You can always group your test cases using describe block . For example : if you want to group contact us page tets cases then  you can write them in one describe block .
+Also you can use "it"  in place of "test" as the name of the function in the test case .
+
+
+
+
+
+Let us now write test cases for header component :)
+
+This is the first error that we encountered : could not find react-redux context value; please ensure the component is wrapped in a <Provider>.
+As our testing library is not aware of redux and stores so we have to provide store to our Header component here also.
+Also we need to provide createBrowseeRouter also to the component as <Link> was also something library not aware of..
+Let us also test how to test for login button click functionality : The only new thing is "firevent" that you can import from testing library .
+ To simulate a user clicking on an element, you can use the fireEvent.click function.
+ To simulate a user typing text into an input field, you can use the fireEvent.change function.
+To simulate a user hovering over an element, you can use the fireEvent.mouseEnter function. etc
+
+
+
+
+
+Let us now write test case for my ResCardComponent which is using props so for testing we have to use mock data that can be given to ResCardComponent  as a prop as this component is expecting props while rendering .
+
+Didyou notice that you don't have explicitly export json data but still you can have access to it through an import statement in the ResCardComponent.test.js How ?
+In JavaScript (and by extension, in TypeScript), when you import a JSON file using the import statement, you don't need to explicitly export anything from the JSON file. The JSON file is treated as a module, and its contents are automatically parsed and made available for import.
+
+
+
+
+
+Let us now move towards the integration testing and as when we are searching for a restaurant in the search bar then so many components are working together such tests are integration tests .
+Integration testing is a software testing technique where individual units or components of a system are combined and tested as a group to ensure that they function correctly together. 
+
+
+render(<Body/>) failed as it is saying "fetch is undefined"
+Remember jsdom is where the testing is happening and jest is rendering your components there .(JSdom is a JavaScript implementation of the Document Object Model (DOM) that is intended to be used with Node.js. It allows you to create a simulated browser environment in a Node.js runtime)
+so it is browser like but do not have all the features and powers that browser have. fetch is one of them.
+
+So, we have to mock the fetch function for testing . 
+
+Refer to fetch.text
+
+
+Let us write a script for automatically run a test whenever there is a change in the test file and I save it like our parcel has HMR as soon as we save any component/file 
+
+
+
+Again we can see a warning that says "Warning: An update to Body inside a test was not wrapped in act(...).
+ When testing, code that causes React state updates should be wrapped into act(...)"
+ so let us understand what act is : The purpose of act() is to make sure that when you interact with your component (for example, by rendering it), React updates the component and its children synchronously before you make your assertions about the component's state or behavior. This helps ensure that your tests accurately reflect how your component behaves in a real-world scenario.
+
+so let us wrap our render inside act() function which is an async function as it returns a promise so we have to await .
+act() takes an async callback as an argument .
+
+
+After rendering my body component , we are going to make a query to have search button.
+
+whenever there is a element that you can not get access through getByRole or getByText etc , in such cases you can always have getByTestid . This is always gonna work and all you have to do id to give some attribute(data-testid) to the element you want to access  and jest will get it for you .
+
+
+
+fireEvent: This is a function provided by the React Testing Library that allows you to simulate various events on DOM elements. It's often used in testing to trigger user interactions, such as clicking, typing, or changing input values.
+ 
+got to know more about what we are doing through { target: { value: "burger" } }: This is an object representing the event data. In a real user interaction, when the value of an input element changes, the event object will have a target property containing information about the element that triggered the event, including its value. Here, you're manually creating an event object with a target property containing a value property set to "burger", simulating the user typing "burger" into the input field.
+
+
+
+
+beforeAll(), afterAll(), beforeEach(), and afterEach() are lifecycle functions provided by testing frameworks like Jest.
+beforeAll(callback): This function runs once before any of the test cases in the test suite begin. It's commonly used for setting up prerequisites or performing expensive setup operations that need to be done only once.
+afterAll(callback): This function runs once after all the test cases in the test suite have finished executing. It's typically used for cleaning up resources.
+beforeEach(callback): This function runs before each test case in the test suite. It's used for setting up the initial state or performing common setup tasks that are required before every test case.
+afterEach(callback): This function runs after each test case in the test suite. It's used for cleaning up the state or performing teardown tasks after each individual test case.
+
+
+
+
+so let us head for our last test case file that intendes to test the restaurant menu items along with cart updating feature.
