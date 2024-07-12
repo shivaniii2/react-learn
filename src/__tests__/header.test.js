@@ -18,7 +18,7 @@ test('should load header component with login button on it', () => {
        
     )
    // const loginBtn = screen.getByRole("button");
-   // const loginBtn = screen.getByText("Login")
+   // const loginBtn = screen.getByText("Login");
    // There is also another way if you have like multiple number of buttons but you want to check for one out of all of them 
     const loginBtn = screen.getByRole("button",{name:"Login"})
     expect(loginBtn).toBeInTheDocument()
